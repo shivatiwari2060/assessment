@@ -6,12 +6,13 @@ const Leaderboard = () => {
   const [leaders, setLeaders] = useState([]);
   const [totalSales, setTotalSales] = useState(0);
   const [totalDeals, setTotalDeals] = useState(0);
-  //   const [openIndex, setOpenIndex] = useState(null);
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/sale/leaderboard");
+        const res = await axios.get(
+          "https://assessment-1-y243.onrender.com/sale/leaderboard"
+        );
 
         if (res.data.success) {
           setLeaders(res.data.data);
