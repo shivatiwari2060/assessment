@@ -7,6 +7,7 @@ dotenv.config();
 const app = express();
 import ConnectDB from "./src/DB/ConnectDB.js";
 import saleRoute from "./src/routes/salesRoutes.js";
+import authRoute from "./src/routes/AuthRoutes.js";
 ConnectDB();
 
 const PORT = process.env.PORT || 5000;
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 app.use("/sale", saleRoute);
+app.use("/auth", authRoute);
 app.get("/", (req, res) => {
   res.status(200).send("Server is running properly");
 });
